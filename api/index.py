@@ -6,7 +6,8 @@ class handler(BaseHTTPRequestHandler):
         key = "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"
         llm_groq = ChatGroq(groq_api_key=key, model_name="llama3-70b-8192")
         final_title = llm_groq.invoke("hy there how are you").content
-        print("this is calling from function ge")
+        self.wfile.write('\n calling from inner function the !'.encode('utf-8'))  # Additional message
+
         # Corrected method to include self and return a string
         return final_title
 
@@ -14,6 +15,8 @@ class handler(BaseHTTPRequestHandler):
         # Send HTTP status 200 (OK)
         self.send_response(200)
         # Set the Content-type header
+        self.wfile.write('\ncalling from \n outputer one!'.encode('utf-8'))  # Additional message
+
         self.send_header('Content-type', 'text/plain')
         # End headers (important in HTTP responses)
         self.end_headers()
