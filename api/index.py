@@ -6,7 +6,7 @@ class handler(BaseHTTPRequestHandler):
         key = "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"
         llm_groq = ChatGroq(groq_api_key=key, model_name="llama3-70b-8192")
         final_title = llm_groq.invoke("hy there how are you").content
-        
+        print("this is calling from function ge")
         # Corrected method to include self and return a string
         return final_title
 
